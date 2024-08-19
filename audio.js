@@ -1,5 +1,5 @@
-const beforeSong = new Audio("./audio/before.mp3");
-const afterSong = new Audio("./audio/after.mp3");
+const beforeSong = new Audio("./audio/Fade-before.wav");
+const afterSong = new Audio("./audio/Fade-after.mp3");
 afterSong.volume = 0;
 
 const playBtn = document.getElementById("playBtn");
