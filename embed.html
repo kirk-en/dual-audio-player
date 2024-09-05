@@ -1,0 +1,55 @@
+<div>
+  <button id="playBtn">Play song</button>
+  <button id="originalBtn">Original</button>
+  <button id="masteredBtn">Mastered</button>
+</div>
+
+<script defer>
+  const beforeSong = new Audio(
+    "https://www.sageaudio.com/sample/tulus-sepatu/before.mp3"
+  );
+  const afterSong = new Audio(
+    "https://www.sageaudio.com/sample/tulus-sepatu/after.mp3"
+  );
+  afterSong.volume = 0;
+
+  const playBtn = document.getElementById("playBtn");
+  const originalBtn = document.getElementById("originalBtn");
+  const masteredBtn = document.getElementById("masteredBtn");
+
+  playBtn.addEventListener("click", (e) => {
+    console.log(e);
+    if (beforeSong.paused) {
+      beforeSong.play();
+      afterSong.play();
+      playBtn.innerText = "Pause song";
+    } else {
+      beforeSong.pause();
+      afterSong.pause();
+      playBtn.innerText = "Play song";
+    }
+  });
+  originalBtn.addEventListener("click", () => {
+    console.log(beforeSong);
+    beforeSong.volume = 1;
+    afterSong.volume = 0;
+    if (beforeSong.paused) {
+      beforeSong.play();
+      afterSong.play();
+      playBtn.innerText = "Pause song";
+    }
+  });
+
+  masteredBtn.addEventListener("click", () => {
+    beforeSong.volume = 0;
+    afterSong.volume = 1;
+    if (beforeSong.paused) {
+      beforeSong.play();
+      afterSong.play();
+      playBtn.innerText = "Pause song";
+    }
+  });
+  beforeSong.addEventListener("ended", () => {
+    playBtn.innerText = "Play song";
+  });
+</script>
