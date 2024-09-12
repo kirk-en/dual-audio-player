@@ -1,3 +1,5 @@
 before.mp3
 after.mp3
 .gitignore
+*.map
+embed copy.html

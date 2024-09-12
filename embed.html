@@ -1,16 +1,41 @@
-<div>
-  <button id="playBtn">Play song</button>
-  <button id="originalBtn">Original</button>
-  <button id="masteredBtn">Mastered</button>
+<div class="audio">
+  <a class="audio__button audio__button--first" id="playBtn">▶</a>
+  <a class="audio__button" id="originalBtn">Original</a>
+  <a class="audio__button" id="masteredBtn">Mastered</a>
 </div>
+<style>
+  :root {
+    --primary-color: #ffffff; /* Define the button color */
+  }
+  .audio {
+    display: flex;
+  }
+  .audio__button {
+    display: inline-block;
+    background-color: transparent;
+    border: solid 3px var(--primary-color);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    transition: transform 0.25s ease-in-out;
+    transform: scale(1);
+    cursor: pointer;
+  }
+  .audio__button:hover {
+    transform: scale(1.05);
+  }
+  .audio__button--first {
+    margin-left: 0;
+  }
+  .audio__button--active {
+    background-color: rgba(94, 155, 235, 0.459);
+  }
+</style>
 
 <script defer>
-  const beforeSong = new Audio(
-    "https://www.sageaudio.com/sample/tulus-sepatu/before.mp3"
-  );
-  const afterSong = new Audio(
-    "https://www.sageaudio.com/sample/tulus-sepatu/after.mp3"
-  );
+  const beforeSong = new Audio("./audio/Fade-before.wav");
+  const afterSong = new Audio("./audio/Fade-after.mp3");
   afterSong.volume = 0;
 
   const playBtn = document.getElementById("playBtn");
@@ -18,38 +43,43 @@
   const masteredBtn = document.getElementById("masteredBtn");
 
   playBtn.addEventListener("click", (e) => {
-    console.log(e);
     if (beforeSong.paused) {
       beforeSong.play();
       afterSong.play();
-      playBtn.innerText = "Pause song";
+      playBtn.innerText = "⏸";
+      beforeSong.volume === 1
+        ? originalBtn.classList.add("audio__button--active")
+        : masteredBtn.classList.add("audio__button--active");
     } else {
       beforeSong.pause();
       afterSong.pause();
-      playBtn.innerText = "Play song";
+      playBtn.innerText = "▶";
     }
   });
   originalBtn.addEventListener("click", () => {
-    console.log(beforeSong);
     beforeSong.volume = 1;
+    originalBtn.classList.add("audio__button--active");
     afterSong.volume = 0;
+    masteredBtn.classList.remove("audio__button--active");
     if (beforeSong.paused) {
       beforeSong.play();
       afterSong.play();
-      playBtn.innerText = "Pause song";
+      playBtn.innerText = "⏸";
     }
   });
 
   masteredBtn.addEventListener("click", () => {
     beforeSong.volume = 0;
+    originalBtn.classList.remove("audio__button--active");
     afterSong.volume = 1;
+    masteredBtn.classList.add("audio__button--active");
     if (beforeSong.paused) {
       beforeSong.play();
       afterSong.play();
-      playBtn.innerText = "Pause song";
+      playBtn.innerText = "⏸";
     }
   });
   beforeSong.addEventListener("ended", () => {
-    playBtn.innerText = "Play song";
+    playBtn.innerText = "▶";
   });
 </script>
