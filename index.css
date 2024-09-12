@@ -1,0 +1,35 @@
+:root {
+  --primary-color: #ffffff; /* Define the button color */
+}
+
+body {
+  background-color: rgb(26, 29, 22);
+  box-sizing: border-box;
+}
+
+.audio {
+  display: flex;
+}
+.audio__button {
+  display: inline-block;
+  background-color: transparent;
+  border: solid 3px var(--primary-color);
+  color: var(--primary-color);
+  padding: 1rem 2rem;
+  margin: 0 0.5rem;
+  text-transform: uppercase;
+  transition: transform 0.25s ease-in-out;
+  transform: scale(1);
+  cursor: pointer;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.audio__button:hover {
+  transform: scale(1.05);
+}
+.audio__button--first {
+  margin-left: 0;
+}
+.audio__button--active {
+  background-color: rgba(94, 155, 235, 0.459);
+}/*# sourceMappingURL=index.css.map */

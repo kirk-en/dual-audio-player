@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./audio.js" defer></script>
     <title>dual song player</title>
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <button id="playBtn">Play song</button>
-    <button id="originalBtn">Original</button>
-    <button id="masteredBtn">Mastered</button>
+    <div class="audio">
+      <a class="audio__button audio__button--first" id="playBtn">▶</a>
+      <a class="audio__button" id="originalBtn">Original</a>
+      <a class="audio__button" id="masteredBtn">Mastered</a>
+    </div>
   </body>
 </html>
