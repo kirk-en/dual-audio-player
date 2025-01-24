@@ -1,6 +1,6 @@
 # Dual Audio Player
 
-A script for playing two audio files simultaneously to showcase before/after comparisons.
+A prototype for playing two audio files simultaneously with a switch to showcase before/after comparisons.
 
 ## How It Works
 
@@ -9,13 +9,11 @@ The Dual Audio Player allows users to play two audio files at the same time, ena
 ### Features
 
 - **Play/Pause Control:** A single button toggles the playback of both audio files simultaneously.
-- **Volume Control:** Two buttons allow users to switch between the original and mastered audio by adjusting the volume levels of the corresponding audio files.
 - **End of Playback Handling:** The script includes logic to handle events when the audio files finish playing, ensuring a smooth user experience.
 
 ### Key Technologies Used
 
-- **HTML:** The structure of the page includes buttons for controlling the audio playback. The script tags use the `defer` attribute to ensure that the DOM is fully loaded before the script runs.
-- **JavaScript (ES6):** The script leverages modern JavaScript features, such as `const` for variable declarations and event listeners to handle user interactions with the audio controls.
+- **JavaScript
 - **Web Audio API:** The script uses the `Audio` object, which is part of the Web Audio API, to load and control the playback of the audio files. The `Audio` object allows for easy manipulation of audio playback, including setting the volume and responding to events like `ended`.
 
 ### Usage
